@@ -145,80 +145,86 @@ const Navbar = () => {
       </header>
 
       {/* Mobile Menu */}
+
+      {isMenuOpen && (
+        <div
+          onClick={() => setIsMenuOpen(false)}
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+        />
+      )}
+
+      {/* Mobile Drawer */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-[380ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}
+        className={`fixed top-0 right-0 h-full w-[90%] max-w-md bg-white shadow-2xl z-50 transform transition-transform duration-500 ease-in-out
+  ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
-        <div className="bg-white border-b border-gray-100 shadow-sm">
-          {/* User Profile Row */}
-          <div className="flex items-center gap-3 px-4 pt-4 pb-2">
+        <div className="flex flex-col h-full">
+          {/* Header */}
+          <div className="flex items-center justify-between px-4 py-4 border-b">
+            <h2 className="font-semibold text-gray-800">Menu</h2>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="text-gray-500 text-xl cursor-pointer hover:text-gray-700 transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* User Profile (keep your design) */}
+          <div className="flex items-center gap-3 px-4 py-4">
             <div className="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center text-sm font-semibold text-green-700">
-              RK
+              MD
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-900">Rahul Khan</p>
-              <p className="text-xs text-gray-500">rahul@example.com</p>
+              <p className="text-sm font-medium text-gray-900">SOHAN</p>
+              <p className="text-xs text-gray-500">islammdsohan603gmail.com</p>
             </div>
           </div>
 
-          <div className="h-px bg-gray-100 mx-4 my-2" />
-
-          {/* Mobile Nav Links */}
-          <div className="flex flex-col gap-0.5 px-3 pb-2">
-            {navLinks.map(link => (
+          {/* Links */}
+          <div className="flex flex-col gap-2 px-4">
+            {navLinks.map((link, index) => (
               <NavLink
                 key={link.name}
                 to={link.to}
                 onClick={() => setIsMenuOpen(false)}
+                style={{ transitionDelay: `${index * 120}ms` }}
                 className={({ isActive }) =>
-                  `flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
-                  ${
-                    isActive
-                      ? 'bg-green-50 text-green-700'
-                      : 'text-gray-500 hover:bg-gray-100 hover:text-gray-900'
-                  }`
+                  `flex items-center justify-between px-3 py-3 rounded-xl text-sm font-medium transition-all duration-500
+            ${
+              isMenuOpen
+                ? 'translate-x-0 opacity-100'
+                : 'translate-x-10 opacity-0'
+            }
+            ${
+              isActive
+                ? 'bg-green-50 text-green-700'
+                : 'text-gray-500 hover:bg-gray-100 hover:text-gray-900'
+            }`
                 }
               >
-                {({ isActive }) => (
-                  <>
-                    <span className="flex items-center gap-2.5">
-                      <span
-                        className={`w-7 h-7 rounded-lg flex items-center justify-center transition-colors ${isActive ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}
-                      >
-                        {link.icon}
-                      </span>
-                      {link.name}
-                      {link.badge && (
-                        <span className="text-[10px] font-semibold bg-red-100 text-red-600 rounded-full px-1.5 py-0.5">
-                          {link.badge}
-                        </span>
-                      )}
-                    </span>
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="14"
-                      height="14"
-                      fill="none"
-                      stroke={isActive ? '#15803d' : '#d1d5db'}
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      className={`transition-transform duration-200 ${isActive ? 'translate-x-0.5' : ''}`}
-                    >
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </>
-                )}
+                <span className="flex items-center gap-2.5">
+                  <span className="w-7 h-7 rounded-lg flex items-center justify-center bg-gray-100">
+                    {link.icon}
+                  </span>
+                  {link.name}
+                </span>
               </NavLink>
             ))}
           </div>
 
-          <div className="h-px bg-gray-100 mx-4 mb-3" />
-
-          {/* Mobile Buttons */}
-          <div className="flex gap-2 px-4 pb-4">
-            <button className="flex-1 py-2.5 rounded-xl bg-green-700 text-white text-sm font-medium hover:bg-green-800 transition-colors">
+          {/* Bottom Buttons */}
+          <div
+            onClick={() => setIsMenuOpen(false)}
+            className="mt-auto px-4 pb-6 flex flex-col gap-3"
+          >
+            <button className="w-full py-2.5 rounded-xl bg-green-700 text-white cursor-pointer hover:bg-green-800 transition-all">
               Sign In
             </button>
-            <button className="flex-1 py-2.5 rounded-xl border border-gray-200 text-gray-800 text-sm font-medium hover:bg-gray-50 transition-colors">
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full py-2.5 rounded-xl border cursor-pointer border-gray-200 text-gray-800 hover:bg-gray-100 transition-all"
+            >
               Sign Up
             </button>
           </div>
