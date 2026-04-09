@@ -1,18 +1,42 @@
-# React + Vite
+# 📚 My Books Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **React.js** application to manage your books, track reading progress,
+and maintain a wishlist. Built with clean UI, responsive design, and
+professional localStorage management.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- **Read & Wishlist Tabs** – Separate views for read books and wishlist.
+- **Mark as Read / Wishlist** – Add books to your read list or wishlist with a
+  single click.
+- **Delete Books** – Remove books from your lists easily.
+- **Progress Bar** – Track how many books you’ve completed out of total books.
+- **Responsive UI** – Works perfectly on desktop, tablet, and mobile.
+- **LocalStorage Integration** – Persist user data across sessions.
+- **Clean and Modern Design** – Gradient buttons, card shadows, hover effects,
+  and smooth animations.
+- **Professional Component Structure** – Reusable components (ProgressBar, Tabs,
+  BookCard).
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **React.js** – Frontend library for building UI.
+- **React Router** – For dynamic routing (`BooksCards`, `Books` pages).
+- **Tailwind CSS + daisyUI** – Modern, responsive styling.
+- **Lucide Icons** – Clean vector icons.
+- **React Toastify** – Notifications for actions.
+- **LocalStorage** – Persisting read/wishlist data.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## screenshot
+
+![alt text](<Screenshot 2026-04-09 165415.png>)
+
+![alt text](<Screenshot 2026-04-09 165431.png>)
+
+![alt text](<Screenshot 2026-04-09 165534.png>)
