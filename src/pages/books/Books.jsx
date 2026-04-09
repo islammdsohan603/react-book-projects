@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ProgressBar from '../../ui/ProgressBar';
 
 const Books = () => {
   const [activeTab, setActiveTab] = useState('read');
@@ -51,8 +52,15 @@ const Books = () => {
     <div className="pt-20 w-11/12 md:w-10/12 mx-auto">
       <h1 className="text-4xl font-bold text-center mb-10">My Books</h1>
 
+      {
+        <ProgressBar
+          total={lists.read.length + lists.wishlist.length}
+          completed={lists.read.length}
+        />
+      }
+
       {/* Tabs */}
-      <div className="flex justify-center gap-4 mb-10">
+      <div className="flex justify-center gap-4 mb-10 mt-10">
         {['read', 'wishlist'].map(tab => (
           <button
             key={tab}
