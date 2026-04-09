@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const AllBooks = () => {
   const [data, setData] = React.useState([]);
@@ -51,6 +52,15 @@ const AllBooks = () => {
                   <Star className="text-yellow-500" />
                 </div>
               </div>
+
+              <button className="w-full">
+                <Link
+                  to={`/booksDetails/${book.bookId}`}
+                  className="btn btn-primary w-full"
+                >
+                  View Details
+                </Link>
+              </button>
             </div>
           ))}
         </div>
